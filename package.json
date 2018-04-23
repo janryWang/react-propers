@@ -1,19 +1,72 @@
 {
-  "name": "propers",
-  "version": "0.1.0-alpha.0",
+  "name": "react-propers",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": " cross-env NODE_ENV=test ava",
+    "build": "babel src/index.js --out-dir lib",
+    "precommit": "lint-staged && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/janryWang/propers.git"
+    "url": "git+https://github.com/janryWang/react-propers.git"
   },
   "author": "janry",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/janryWang/propers/issues"
+    "url": "https://github.com/janryWang/react-propers/issues"
   },
-  "homepage": "https://github.com/janryWang/propers#readme"
+  "homepage": "https://github.com/janryWang/react-propers#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.46",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/preset-react": "^7.0.0-beta.46",
+    "@babel/register": "^7.0.0-beta.46",
+    "ava": "^1.0.0-beta.4",
+    "cross-env": "^5.1.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.3.0",
+    "prettier": "^1.11.x",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "lint-staged": {
+    "src/*.js": [
+      "prettier --write --tab-width 4 --no-semi",
+      "git add"
+    ],
+    "dist/*.js": [
+      "prettier --write --tab-width 4 --no-semi",
+      "git add"
+    ],
+    "test.js": [
+      "prettier --write --tab-width 4 --no-semi",
+      "git add"
+    ]
+  },
+  "ava": {
+    "require": [
+      "@babel/register"
+    ],
+    "babel": {
+      "testOptions": {
+        "babelrc": false,
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "loose": true
+            }
+          ],
+          "@babel/preset-react"
+        ],
+        "plugins":["@babel/plugin-proposal-class-properties"]
+      }
+    }
+  }
 }
