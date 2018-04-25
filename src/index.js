@@ -58,6 +58,10 @@ export class Propers extends React.Component {
                                   value: $selector,
                                   writable: false
                               },
+                              payload: {
+                                  value: props,
+                                  writable: false
+                              },
                               index: {
                                   value: $selector,
                                   writable: false

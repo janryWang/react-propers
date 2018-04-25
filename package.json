@@ -1,12 +1,12 @@
 {
   "name": "react-propers",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
     "test": " cross-env NODE_ENV=test ava",
     "build": "babel src/index.js --out-dir lib",
-    "precommit": "lint-staged && npm run test && npm run build"
+    "precommit": "npm run build && lint-staged && npm run test  && git add -A"
   },
   "repository": {
     "type": "git",
