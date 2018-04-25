@@ -25,6 +25,14 @@ const getPathSegments = path => {
 
 const _createElement = React.createElement
 
+const getSelector = (props, selector) => {
+    selector = Array.isArray(selector) ? selector : [selector]
+    for (let i = 0; i < selector.length; i++) {
+        let item = props[selector[i]]
+        if (item !== undefined || item !== null) return item
+    }
+}
+
 export class Propers extends React.Component {
     static defaultProps = {
         selector: "$id"
@@ -34,7 +42,7 @@ export class Propers extends React.Component {
         const { traverse, selector, state } = this.props
         return function(component, props, ...children) {
             if (!isFn(traverse)) return _createElement.apply(null, arguments)
-            const $selector = props && props[selector]
+            const $selector = props && getSelector(props, selector)
             const $props = $selector
                 ? traverse(
                       props,
