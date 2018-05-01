@@ -59,7 +59,11 @@ npm install --save react-propers
 
 #### `selector : String | Array<String>`
 
+> Support single selector and multi selector.
+
 #### `traverse : Function`
+
+> You can use qverse to easily update props.
 
 ### LICENSE
 
