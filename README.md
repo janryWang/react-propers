@@ -63,7 +63,7 @@ npm install --save react-propers
 
 #### `traverse : Function`
 
-> You can use qverse to easily update props.
+> You can use [qverse](https://github.com/janryWang/qverse) to easily update props.
 
 ### LICENSE
 
