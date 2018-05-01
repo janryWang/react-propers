@@ -1,24 +1,13 @@
 import React from "react"
 
+const isArr = val => Array.isArray(val)
+const isStr = val => typeof val === "string"
 const isFn = fn => typeof fn === "function"
 
 const getPathSegments = path => {
     if (isArr(path)) return path
     if (isStr(path) && path) {
-        const pathArr = path.split(".")
-        const parts = []
-
-        for (let i = 0; i < pathArr.length; i++) {
-            let p = pathArr[i]
-
-            while (p[p.length - 1] === "\\" && pathArr[i + 1] !== undefined) {
-                p = p.slice(0, -1) + "."
-                p += pathArr[++i]
-            }
-
-            parts.push(p)
-        }
-        return parts
+        return (path || "").trim().split(/\s*\.\s*/)
     }
     return []
 }
@@ -35,7 +24,7 @@ const getSelector = (props, selector) => {
 
 export class Propers extends React.Component {
     static defaultProps = {
-        selector: "$id"
+        selector: "id"
     }
 
     buildCreateElement() {
@@ -80,7 +69,6 @@ export class Propers extends React.Component {
                 : props
             if ($selector) {
                 if ($props) {
-                    delete $props[$selector]
                     return _createElement(component, $props, ...children)
                 }
             } else {
