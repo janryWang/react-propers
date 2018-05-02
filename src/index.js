@@ -18,7 +18,7 @@ const getSelector = (props, selector) => {
     selector = Array.isArray(selector) ? selector : [selector]
     for (let i = 0; i < selector.length; i++) {
         let item = props[selector[i]]
-        if (item !== undefined || item !== null) return item
+        if (item !== undefined && item !== null) return item
     }
 }
 
