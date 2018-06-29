@@ -30,7 +30,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "husky": "^0.14.3",
-    "lint-staged": "^4.3.0",
+    "lint-staged": "^7.2.0",
     "prettier": "^1.11.x",
     "qverse": "^0.1.0",
     "react": "^16.3.2",
