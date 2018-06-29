@@ -1,5 +1,7 @@
 # react-propers
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/janryWang/react-propers.svg)](https://greenkeeper.io/)
+
 > Select react doms , and update props.
 
 
