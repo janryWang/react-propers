@@ -68,7 +68,7 @@ export class Propers extends React.Component {
                   )
                 : props
             if ($selector) {
-                if ($props) {
+                if ($props && !$props["data-propers-hidden"]) {
                     return _createElement(component, $props, ...children)
                 }
             } else {
